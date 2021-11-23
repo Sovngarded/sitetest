@@ -1,52 +1,41 @@
 <template>
-
   <v-app style="background: #1C1D21;" >
     <v-main >
       <v-container >
         <v-layout row wrap align-content-center>
           <v-flex class="text-lg-center">
-
-
         <div>
         <h1 >
         Kibirev Artem
           </h1>
         </div>
         <div class="photo">
-
           <img src="@/pictures/1.jpg">
-
         </div>
-        <v-btn id="buttonOpenList"
-            color="pink"
-            dark
-        >ПОСМОТРЕТЬ РАСПИСАНИЕ</v-btn>
+            <v-expansion-panels>
+            <v-expansion-panel>
+              <v-expansion-panel-header color="#7E4E60">
+                ПОСМОТРЕТЬ РАСПИСАНИЕ
+              </v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-data-table
+                    :headers="headers"
+                    :items="workthings"
+                    :items-per-page="5"
+                    class="elevation-1"
+                ></v-data-table>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            </v-expansion-panels>
 
-
-
-
-
-
-
-      <v-data-table
-          :headers="headers"
-          :items="workthings"
-          :items-per-page="5"
-          class="elevation-1"
-      ></v-data-table>
 
       </v-flex>
       </v-layout>
       </v-container>
-
-
     </v-main>
   </v-app>
 </template>
-
 <script>
-
-
 export default {
   name: 'App',
   components: {
@@ -56,7 +45,7 @@ export default {
       headers: [
         {
           text: 'Что делаю',
-          align: 'start',
+          align: 'center',
           sortable: false,
           value: 'name',
         },
@@ -99,20 +88,12 @@ export default {
     }
   },
 }
-
 </script>
-
 <style>
-
 img{
   width: 500px;
-
 }
-
-
-
 h1{
-
   font: italic small-caps bold 60px/2 cursive;
   color:#BB9BB0;
   text-shadow: 2px 2px 0px #ffffff, 5px 4px 0px rgba(0,0,0,0.15), 2px 2px 2px rgba(206,89,55,0);
