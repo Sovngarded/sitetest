@@ -9,12 +9,28 @@
         Kibirev Artem
           </h1>
         </div>
-        <div class="photo">
-          <img src="@/pictures/1.jpg">
-        </div>
+            <v-hover v-slot="{ hover }">
+              <v-card
+                  class="mx-auto"
+                  color="grey lighten-4"
+                  max-width="600"
+              >
+            <v-img :src="require('./pictures/1.jpg')" :aspect-ratio="16/9" width="700" class="mx-auto">
+            <v-expand-transition>
+              <div
+                  v-if="hover"
+                  class="d-flex transition-fast-in-fast-out grey darken-2 v-card--reveal text-h6 white--text"
+                  style="height: 100%"
+              >
+                Я люблю делать разные вещи например спать кушать вкусно и играть доту 2 очень сожелею что попал в эту тусовку помогите вытащите оттуда я не хочу фармить лес 40 минут что бы проиграть о господе за что мне такие тиммейты
+              </div>
+            </v-expand-transition>
+            </v-img>
+
+
             <v-expansion-panels>
             <v-expansion-panel>
-              <v-expansion-panel-header color="#7E4E60">
+              <v-expansion-panel-header color="#2E0F15">
                 ПОСМОТРЕТЬ РАСПИСАНИЕ
               </v-expansion-panel-header>
               <v-expansion-panel-content>
@@ -28,10 +44,14 @@
             </v-expansion-panel>
             </v-expansion-panels>
 
-
+              </v-card>
+            </v-hover>
       </v-flex>
+
       </v-layout>
+
       </v-container>
+
     </v-main>
   </v-app>
 </template>
@@ -90,9 +110,15 @@ export default {
 }
 </script>
 <style>
-img{
-  width: 500px;
+.v-card--reveal {
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  opacity: .5;
+  position: absolute;
+  width: 100%;
 }
+
 h1{
   font: italic small-caps bold 60px/2 cursive;
   color:#BB9BB0;
